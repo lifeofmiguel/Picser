@@ -1,0 +1,11 @@
+<h1> All Images </h1>
+
+<ul>
+    <% @images.each do |m| %>
+        <li>
+            <a href="/images/<%= m.id %>"> <%= image_tag image.main_image %>
+            </a>
+        </li>
+    <% end %>
+</ul>
+

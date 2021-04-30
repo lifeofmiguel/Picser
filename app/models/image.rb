@@ -1,5 +1,6 @@
 class Image < ApplicationRecord
     #   %?%  looks for everything similar to the query
+    has_one_attached :photo
     def self.search(query)
         self.where("title like %?%", query)
     end
@@ -10,4 +11,5 @@ class Image < ApplicationRecord
 
     def self.most_recent
         self.order(created_at: :asc)
+    end
 end
