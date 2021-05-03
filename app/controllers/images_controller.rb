@@ -6,6 +6,11 @@ class ImagesController < ActionController::Base
 
     def create
         @images = Image.create(image_params)
+        if @image .save
+            redirect images_path(@image.id). notice: "Image successfully uploaded!"
+        else
+            render :new
+        end
     end
 
     def destroy
