@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
     before_action :authenticate_account!
 
-    def index
-        #feed
-    end
+    # def index
+    #     #feed
+    # end
 
-    def show
-        #profile
-    end
+    # def show
+    #     #profile
+    # end
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
