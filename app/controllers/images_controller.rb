@@ -1,10 +1,15 @@
 class ImagesController < ActionController::Base
 
+    def new
+        @image = Image.new
+      end
+
     def index
-        @image = Image.all
+        @image = Image.order(created_at: :desc).limit(10)
     end
 
     def create
+        
         @image = Image.create(image_params)
         if @image .save
             redirect images_path(@image.id). notice "Image successfully uploaded!"
