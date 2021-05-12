@@ -9,10 +9,12 @@ class ImagesController < ActionController::Base
     end
 
     def create
-        
-        @image = Image.create(image_params)
-        if @image .save
-            redirect images_path(@image.id). notice "Image successfully uploaded!"
+        @image = current_account.images.build(image_params)
+        # @image = Image.create(image_params)
+        # @image.user_id = current_user.id
+        if @image.save
+            redirect_to image_path(@image.id) 
+            #flash.notice = "Image successfully uploaded!"
         else
             render :new
         end
@@ -29,7 +31,7 @@ class ImagesController < ActionController::Base
     private
 
     def image_params
-        params.require(:image).permit(:image, :caption)
+        params.require(:image).permit(:caption)
     end
 
 end
