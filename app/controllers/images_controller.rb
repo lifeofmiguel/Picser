@@ -31,7 +31,7 @@ class ImagesController < ActionController::Base
     private
 
     def image_params
-        params.require(:image).permit(:caption)
+        params.require(:image).permit(:image, :caption)
     end
 
 end
