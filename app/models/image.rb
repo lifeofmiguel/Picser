@@ -5,7 +5,7 @@ class Image < ApplicationRecord
 
     has_many :likes, dependent: :destroy
 
-    has_many :accounts_who_liked, through: :likes, sources: :account
+    has_many :accounts_who_liked, through: :likes, source: :account
 
     belongs_to :account
     
