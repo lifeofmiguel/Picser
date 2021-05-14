@@ -4,6 +4,6 @@ class Like < ApplicationRecord
 
     belongs_to :image
 
-    validates :user_id, uniqueness: {scope: :photo_id}
-    
+    validates :account_id, uniqueness: {scope: :image_id}
+
 end
