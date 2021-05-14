@@ -4,6 +4,10 @@ class Account < ApplicationRecord
 
   has_many :images
 
+  has_many :likes, dependent: :destroy
+
+  has_many :liked_images, through: :likes, source: :image
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

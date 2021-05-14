@@ -2,6 +2,11 @@ class Image < ApplicationRecord
     #   %?%  looks for everything similar to the query
 
     has_one_attached :image
+
+    has_many :likes, dependent: :destroy
+
+    has_many :accounts_who_liked, through: :likes, sources: :account
+
     belongs_to :account
     
     def self.search(query)
