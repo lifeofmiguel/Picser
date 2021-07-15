@@ -28,6 +28,11 @@
   </div>
 </div>
 
+<form action="/images/<%= @image.id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<button type="submit">Delete Image</button>
+</form>
+
 <% else %>
 <%= link_to "log in", new_account_session_path  %><br>
 you must sign in or sign up

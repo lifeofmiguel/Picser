@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_14_040727) do
+ActiveRecord::Schema.define(version: 2021_07_14_160053) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -59,28 +59,20 @@ ActiveRecord::Schema.define(version: 2021_05_14_040727) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "image_id"
+  end
+
   create_table "images", force: :cascade do |t|
     t.integer "account_id"
     t.text "caption"
     t.integer "likes", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "likes", force: :cascade do |t|
-    t.integer "account_id"
-    t.integer "image_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "image"
-    t.integer "account_id"
-    t.boolean "active"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_posts_on_account_id"
   end
 
   create_table "sessions", force: :cascade do |t|

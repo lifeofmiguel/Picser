@@ -1,11 +1,17 @@
 class ImagesController < ActionController::Base
 
-    def new
-        @image = Image.new
-      end
+    before_action
 
     def index
         @image = Image.order(created_at: :desc).limit(10)
+    end
+
+    def show
+        @image = Image.find(params[:id])
+    end
+
+    def new
+        @image = Image.new
     end
 
     def create
@@ -20,12 +26,15 @@ class ImagesController < ActionController::Base
         end
     end
 
-    def destroy
-        @image = Image.find(params[:id]).destroy
+    def edit
+        @image = Image.find_by_id(params[:id])
+        render :edit
     end
 
-    def show
-        @image = Image.find(params[:id])
+    def destroy
+        @image = Image.find(params[:id]).destroy
+        redirect_to '/images'
+
     end
 
     private

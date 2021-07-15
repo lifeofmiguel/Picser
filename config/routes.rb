@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   end
 
   resources :images do
-    resources :likes
-  end
+    end
 
 end

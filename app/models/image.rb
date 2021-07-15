@@ -3,11 +3,11 @@ class Image < ApplicationRecord
 
     has_one_attached :image
 
-    has_many :likes, dependent: :destroy
-
     has_many :accounts_who_liked, through: :likes, source: :account
 
     belongs_to :account
+
+    has_many :accounts, through: :comments
     
     def self.search(query)
         self.where("title like %?%", query)
