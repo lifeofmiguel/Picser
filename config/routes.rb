@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   root to: "pages#home"
   #get '/@:username', to: 'users#show', as: :profile
 
+  resources :images do
+    resources :comments
+  end
+
   resources :accounts do 
     resources :images
   end
