@@ -4,6 +4,8 @@ class Account < ApplicationRecord
 
   has_many :images
 
+  has_many :comments, dependent: :destroy
+
   has_many :comments, through: :image
 
   devise :database_authenticatable, :registerable,

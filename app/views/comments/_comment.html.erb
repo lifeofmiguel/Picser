@@ -1,0 +1,14 @@
+<h3> Add a Comment: </h3>
+
+<%= form_for comment do |f| %>
+
+    <%= f.hidden_field :account_id, value: account.id %>
+   
+    <%= f.hidden_field :image_id, value: image.id %>
+
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+
+<p> <%= f.submit %>
+
+<% end %>

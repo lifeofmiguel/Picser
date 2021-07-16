@@ -8,6 +8,7 @@ class ImagesController < ActionController::Base
 
     def show
         @image = Image.find(params[:id])
+        @comment = Comment.new(image_id:params[:id])
     end
 
     def new

@@ -8,6 +8,8 @@ class Image < ApplicationRecord
     belongs_to :account
 
     has_many :accounts, through: :comments
+
+    has_many :comments, dependent: :destroy
     
     def self.search(query)
         self.where("title like %?%", query)
