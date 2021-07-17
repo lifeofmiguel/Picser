@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
 
     # private 
 
-    # def
-    # end
+    def comment_params
+        params.require(:image, :body, :comment).permit(:image, :body, :comment)
+    end
 end
