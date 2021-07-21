@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :accounts
+  devise_for :accounts, controllers: {omniauth_callbacks: 'omniauth'}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   get '/upload', to: 'images#new'
@@ -19,5 +19,7 @@ Rails.application.routes.draw do
 
   resources :images do
     end
+
+    get "/auth/google_oauth2/callback", to: 'omniauth#google_oauth2'
 
 end
