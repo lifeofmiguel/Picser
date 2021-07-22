@@ -1,8 +1,11 @@
-class AccountController < ApplicationController
+class AccountsController < ApplicationController
 
-    #protect_from_forgery with: :null_session
+    protect_from_forgery with: :null_session
 
     #skip_before_action :verify_authenticity_token
+    def index
+        @accounts = Account.all
+    end
 
     def show
         #@account = Account.find_by(username: params[:username])

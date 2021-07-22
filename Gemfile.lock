@@ -269,6 +269,7 @@ DEPENDENCIES
   devise
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  omniauth
   omniauth-google-oauth2
   pg (~> 1.2, >= 1.2.3)
   puma (~> 5.0)

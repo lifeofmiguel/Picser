@@ -10,7 +10,7 @@ class Account < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [google_oauth2]
+         :omniauthable, omniauth_providers: [:google_oauth2]
 
   def self.create_from_provider_data(provider_data)
     where(provider: provider_data.provider, uid: provider_data.uid).first_or_create do |account|

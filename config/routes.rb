@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :accounts, controllers: {omniauth_callbacks: 'omniauth'}
+  # devise_for :accounts, controllers: {omniauth_callbacks: 'omniauth'}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
+  devise_for :accounts, :controllers => { :omniauth_callbacks => "accounts/omniauth_callbacks" }
   get '/upload', to: 'images#new'
 
   post '/upload', to: 'images#create'
