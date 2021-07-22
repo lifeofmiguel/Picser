@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-    #protect_from_forgery with: :null_session
+    protect_from_forgery with: :null_session
 
     def create
         @findimages = Image.find(params[:item_id]) if params[:item_id]
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
         redirect_to image_path(@image)
     end
 
-    # private 
+    private 
 
     def comment_params
         params.require(:image, :body, :comment).permit(:image, :body, :comment)

@@ -1,6 +1,8 @@
 class ImagesController < ActionController::Base
 
-    before_action
+    protect_from_forgery with: :null_session
+
+    before_action :authenticate_account!
 
     def index
         @image = Image.order(created_at: :desc).limit(10)
