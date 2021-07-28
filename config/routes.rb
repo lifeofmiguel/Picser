@@ -16,9 +16,10 @@ Rails.application.routes.draw do
 
   post '/upload', to: 'images#create'
 
+
   resources :images, only: [:index, :show, :create]
 
-  root to: "pages#home"
+  root "pages#home"
 
   #get '/@:username', to: 'users#show', as: :profile
 
