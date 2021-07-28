@@ -11,4 +11,8 @@ class AccountsController < ApplicationController
         #@account = Account.find_by(username: params[:username])
         @images = @account.images.order(created_at: :desc)
     end
+
+    def current_user
+        @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    end
 end

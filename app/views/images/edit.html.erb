@@ -1,0 +1,10 @@
+ <h2>Edit Post</h2>
+
+    <%= form_with model: @image, url: account_image_path(current_account, @image), method: "patch" do |f| %>
+
+        <%= f.label :caption %>
+        <%= f.text_field :caption %>
+        <%= f.submit 'Update Image' %>
+            <% end %>
+
+            <%= button_to "Delete Image", @image, method: "delete" %><br />
