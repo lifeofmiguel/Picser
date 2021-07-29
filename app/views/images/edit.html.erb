@@ -1,3 +1,44 @@
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+
+<div class="navbar navbar-expand-lg bg-dark navbar-dark mb-3">
+  <div class="container">
+    <%= link_to "Picser", root_path, class: 'navbar-brand' %>
+    <% if current_account %>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Home", root_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Recent", images_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Upload", upload_path, class: 'btn btn-primary' %>
+      </li>
+    </ul>
+      <% end %>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <% if account_signed_in? %>
+          <li class="nav-item">
+            <%= button_to "Log Out", destroy_account_session_path, method: :delete, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign In", new_account_session_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Create an Account", new_account_registration_path, class: 'btn btn-primary' %>
+          </li>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+ 
  <h2>Edit Post</h2>
 
     <%= form_with model: @image, url: account_image_path(current_account, @image), method: "patch" do |f| %>
